@@ -1,17 +1,32 @@
 package org.example;
 
+import org.example.Controller.ConsoleController;
+import org.example.Model.Fine;
+import org.example.Model.TrafficEvent;
+import org.example.Model.Vehicle;
+import org.example.Repository.FineRepository;
+import org.example.Repository.IRepository;
+import org.example.Repository.TrafficEventRepository;
+import org.example.Repository.VehicleRepository;
+import org.example.Service.FineService;
+import org.example.Service.TrafficEventService;
+import org.example.Service.VehicleService;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+        IRepository<Vehicle, Integer> vehicleRepository = new VehicleRepository("vehicles.json");
+        IRepository<TrafficEvent,Integer> trafficeventRepository = new TrafficEventRepository("events.json");
+        IRepository<Fine, Integer> fineRepository = new FineRepository("fines.json");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+
+        VehicleService tributService = new VehicleService(vehicleRepository);
+        TrafficEventService trafficeventService = new TrafficEventService(trafficeventRepository);
+        FineService fineService = new FineService(fineRepository);
+
+        ConsoleController controller = new ConsoleController (tributService,trafficeventService,fineService);
+        controller.start();
         }
     }
-}
+

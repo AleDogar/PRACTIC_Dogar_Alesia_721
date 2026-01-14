@@ -59,14 +59,14 @@ public class Vehicle implements HasId<Integer>{
         this.status = status;
     }
 
+
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "id=" + id +
-                ", licensePlate='" + licensePlate + '\'' +
-                ", type=" + type +
-                ", ownerCity='" + ownerCity + '\'' +
-                ", status=" + status +
-                '}';
+        return
+                "[" + id + "] " +
+                        licensePlate +
+                        " | " + type + " | "
+                        + status +" | " +
+                        " city=< " + ownerCity +">";
     }
 }
