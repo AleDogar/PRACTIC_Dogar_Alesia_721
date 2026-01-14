@@ -13,5 +13,14 @@ public class VehicleService {
     public List<Vehicle> getAll() {return repo.findAll();}
 
 
+    public void task2_filterByTypeAndStatus(String type, String status) {
+        repo.findAll().stream()
+                .filter(v -> v.getType().toString().equalsIgnoreCase(type))
+                .filter(v -> v.getStatus().toString().equalsIgnoreCase(status))
+                .forEach(System.out::println);
+    }
+
+
+
 
 }

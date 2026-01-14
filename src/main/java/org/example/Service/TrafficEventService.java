@@ -12,5 +12,5 @@ public class TrafficEventService {
 
     public List<TrafficEvent> getAll() { return repo.findAll(); }
     
-    
+
 }
