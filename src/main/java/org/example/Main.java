@@ -11,7 +11,6 @@ import org.example.Repository.VehicleRepository;
 import org.example.Service.FineService;
 import org.example.Service.TrafficEventService;
 import org.example.Service.VehicleService;
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -28,5 +27,6 @@ public class Main {
         ConsoleController controller = new ConsoleController (tributService,trafficeventService,fineService);
         controller.start();
         }
+
     }
 

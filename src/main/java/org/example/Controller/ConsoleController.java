@@ -27,7 +27,7 @@ public class ConsoleController {
         vs.getAll().forEach(System.out::println);
 
         while(true) {
-            System.out.println("\nSelect: 2.Filter, 3.SortandFile, 5.points, 6.Ranking, 7.Report, 0.Exit");
+            System.out.println("\nSelect: 2.Filter, 3.SortandFile, 5.points, 6.Ranking, 7.Abschlussbericht, 0.Exit");
             String choice = sc.nextLine();
             switch (choice) {
                 case "2" -> {
@@ -38,9 +38,8 @@ public class ConsoleController {
                 }
                 case "3" -> vs.task3And4SortAndSave();
                 case "5" -> tes.task5ComputeRisk();
-
-
-
+                case "7" -> tes.task7CountEventsByType();
+                case "0" -> System.exit(0);
             }
 
         }
